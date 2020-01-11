@@ -4,35 +4,32 @@ namespace TestApplication
 {
     class Rectangle
     {
-        double length;
-        double width;
-        public void Acceptdetails()
-        {
-            length = 4.5;
-            width = 3.5;
-        }
-        public double GetArea()
+        //成员变量
+        internal double length;
+        internal double width;
+
+        double GetArea()
         {
             return length * width;
         }
         public void Display()
         {
-            Console.WriteLine("Length: {0}", length);
-            Console.WriteLine("Width: {0}", width);
-            Console.WriteLine("Area: {0}", GetArea());
+            Console.WriteLine("长度： {0}", length);
+            Console.WriteLine("宽度： {0}", width);
+            Console.WriteLine("面积： {0}", GetArea());
         }
-    }
-
-    class ExencuteRectangle
+    }//end class Rectangle    
+    class ExecuteRectangle
     {
         static void Main(string[] args)
         {
             Rectangle r = new Rectangle();
-            r.Acceptdetails();
+            r.length = 4.5;
+            r.width = 3.5;
             r.Display();
             Console.ReadLine();
         }
     }
-    
+
 }
 
