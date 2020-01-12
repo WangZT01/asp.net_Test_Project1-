@@ -2,34 +2,34 @@
 
 namespace TestApplication
 {
-    class Rectangle
+    abstract class Shape
     {
-        //成员变量
-        internal double length;
-        internal double width;
-
-        double GetArea()
-        {
-            return length * width;
-        }
-        public void Display()
-        {
-            Console.WriteLine("长度： {0}", length);
-            Console.WriteLine("宽度： {0}", width);
-            Console.WriteLine("面积： {0}", GetArea());
-        }
-    }//end class Rectangle    
-    class ExecuteRectangle
+        abstract public int area();
+    }
+    class Rectangle : Shape
     {
-        static void Main(string[] args)
+        private int length;
+        private int width;
+        public Rectangle(int a = 0, int b = 0)
         {
-            Rectangle r = new Rectangle();
-            r.length = 4.5;
-            r.width = 3.5;
-            r.Display();
-            Console.ReadLine();
+            length = a;
+            width = b;
+        }
+        public override int area()
+        {
+            Console.WriteLine("Rectangle 类的面积：");
+            return (width * length);
         }
     }
 
+    class RectangleTester
+    {
+        static void Main(string[] args)
+        {
+            Rectangle r = new Rectangle(10, 7);
+            double a = r.area();
+            Console.WriteLine("面积： {0}", a);
+            Console.ReadKey();
+        }
+    }
 }
-
